@@ -1,0 +1,120 @@
+<div class="container my-5 py-2 bg-white" id="userUpdateContainer">
+  <h3 class="border-bottom text-muted">Update User</h3>
+
+  {{#if updateStatus}}
+  <div class="alert alert-success alert-dismissible fade show" role="alert">
+    <strong>Success!</strong> Datas are updated successfully!
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+  {{/if}}
+  {{#if submitErr}}
+  <div class="alert alert-danger alert-dismissible fade show" role="alert">
+    <strong>Error: </strong> {{submitErr}}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+  {{/if}}
+  {{#if deleteUser}}
+  <div class="border border-danger p-3 rounded my-3 col-12 col-lg-6 mx-auto" id="deleteUserContainer">
+
+    <legend class="text-danger">Delete user </legend>
+    <hr>
+    <p>
+      <b>Are you sure to delete user <span class="text-capitalize"> "{{userData.name}}"</span>?</b> <br>
+      Once you click the button, You cannot undo this operation!
+    </p>
+    <div id="resultDeleted">
+
+      <button class="btn btn-danger" id="SubmitDelete">Delete it!</button>
+    </div>
+  </div>
+
+  <fieldset disabled>
+    {{/if}}
+    <form class="d-block col-12 col-lg-6 m-auto" method="post">
+      <legend>Update user data</legend>
+      <div class="mb-3">
+        <label for="nameInput" class="form-label">User Name</label>
+        <input type="text" id="nameInput" class="form-control" placeholder="Full Name" name="uNametoUpdate"
+          value="{{userData.name}}">
+      </div>
+      <div class="mb-3">
+        <label for="emailInput" class="form-label">Email</label>
+        <input type="email" id="emailInput" class="form-control" placeholder="yourname@domain.com" name="emailtoUpdate"
+          value="{{userData.email}}">
+      </div>
+      <div class="mb-3">
+        <label for="passwordInput" class="form-label">Password</label>
+        <input type="password" id="passwordInput" class="form-control" placeholder="Password" name="password">
+        <input type="password" id="passwordInput" class="form-control mt-1" placeholder="Re Password" name="repassword">
+      </div>
+      {{!-- <div class="mb-3">
+        <label for="disabledSelect" class="form-label">Disabled select menu</label>
+        <select id="disabledSelect" class="form-select">
+          <option>Disabled select</option>
+        </select>
+      </div> --}}
+      <div class="mb-3">
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" id="adminAccessCheckBox" onchange="adminValDituctor()" {{#if
+            userData.admin}} value="yes" checked {{else}}value="no" {{/if}}>
+          <input type="hidden" name="adminAccess" id="adminAccessCheckBoxVal" {{#if userData.admin}} value="yes"
+            {{else}}value="no" {{/if}}>
+          <label class="form-check-label" for="adminAccessCheckBox">
+            Admin authorization
+          </label>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+      {{#if deleteUser}}
+  </fieldset>
+  {{/if}}
+  </form>
+</div>
+
+<script>
+  function adminValDituctor() {
+    alert('Please conform that you have changed Admin power for this user!')
+    let inp = document.getElementById('adminAccessCheckBoxVal')
+    if (inp.value == 'yes') {
+      inp.value = 'no';
+    } else {
+      inp.value = 'yes';
+    }
+  }
+  $(document).ready(function () {
+    $("#SubmitDelete").click(function (event) {
+      if (confirm("Confirming that you are sure to delete the user data, To confirm it just click OK") == true) {
+
+        
+        {{!-- var formData = {
+              name: $("#name").val(),
+              email: $("#email").val(),
+              superheroAlias: $("#superheroAlias").val(),
+            }; --}}
+        $('#resultDeleted').html('<hr><p class="text-danger "><b>Deleting...</b></p>')
+        $.ajax({
+          type: "GET",
+          url: "/admin/server/deleteuser/{{userData._id}}",
+        {{!-- data: formData, --}}
+        {{!-- dataType: "json",
+        encode: true, --}}
+        }).done(function (data) {
+          $('#resultDeleted').html(data);
+          setTimeout(() => {
+            $('#userUpdateContainer').html('<h2 class="text-danger text-center py-5 my-5">404 | User is Unavailable!</h2>')
+          }, 10000)
+
+        });
+      } else {
+        $('#resultDeleted').html('<hr><p class="text-primary ">Great! You have cancelled it!</p>');
+        setTimeout(()=>{
+          $('#deleteUserContainer').html('');
+          $('#deleteUserContainer').css('display','none');
+          $('fieldset').removeAttr('disabled') 
+        },5000)
+      }
+
+  event.preventDefault();
+  });
+});
+</script>

@@ -1,0 +1,28 @@
+<div class="row justify-content-around my-5">
+    <div class="card bg-primary col-lg-3 ">
+        <h1 class="text-white"><i class="bi bi-people-fill"></i> {{countDatas.users}}</h1>
+        <h4 class="text-light">Users</h4>
+
+    </div>
+    <div class="card bg-success col-lg-3">
+        <h1 class="text-white">
+            <i class="bi bi-grid"></i>
+            0 
+        </h1><small>Under Maintenance</small>
+        <h4 class="text-light">Products</h4>
+    </div>
+    <div class="card bg-light col-lg-3">
+        <h1 class="text-dark">
+            <i class="bi bi-clipboard2-data-fill"></i>
+            {{countDatas.admins}}
+        </h1>
+        <h4 class="text-muted">Admins</h4>
+    </div>
+</div>
+<div class="container">
+    <h3 class="text-muted border-bottom">Usefull links</h3>
+    <a href="/admin/users" class="btn-link btn">Manage Users</a> | 
+    <a href="#" class="btn-link btn">Manage Products</a> |
+    <a href="/admin/users/update/{{userData._id}}" class="btn-link btn">Settings</a> 
+
+</div>

@@ -1,0 +1,64 @@
+
+
+<div class="d-flex justify-content-center align-items-center w-100 bg-light flex-column adminloginbg" style="width: 100%; height: 100vh;">
+
+{{#if errorDetucted}}
+
+
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <strong>Invalid Login!</strong> {{errorDetucted}}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+
+{{/if}}
+    <div class="col-lg-5 col-md-8 col-12 border border-muted p-5 rounded bg-white bg-opacity-50 shadow-sm">
+        <h1 class="text-center text-white">Admin Login</h1>
+        <hr class="">
+        {{#if successLoginAttempt}}
+        <h3 class="text-success">Logged in</h3>
+        <a href="/" class="btn btn-success">Get access</a>
+        <script>
+            setTimeout(() => {
+                window.location = '/admin';
+            }, 500);
+        </script>
+        {{else}}
+
+        <form action="/admin/login" method="post">
+            <div class="form-group my-1">
+                <label for="InputEmail1">Email address</label>
+                <input type="text" class="form-control" id="InputEmail1" aria-describedby="emailHelp"
+                    name="email" value="adil.akp1@gmail.com" placeholder="Enter you email">
+                <small id="emailHelp" class="form-text text-muted d-none">We'll never share your email with anyone
+                    else.</small>
+            </div>
+            <div class="form-group my-1">
+                <label for="userPass">Password</label>
+                <input type="password" class="form-control" id="userPass" name="password" placeholder="Password"
+                    value="asdf1234">
+            </div>
+            <div class="form-group form-check">
+                <input type="checkbox" class="form-check-input" id="passcheck1">
+                <label class="form-check-label" for="passcheck1"><small>Show/Hide</small></label>
+            </div>
+            <div class=" p-0 m-0 ">
+
+            <a href="/login" class=" small text-primary" >Login as user</a> <small class="text-muted">
+            </div>
+            <button type="submit" class="btn btn-primary my-1">Login</button>
+        </form>
+        {{/if}}
+    </div>
+
+</div>
+
+<script>
+    document.getElementById('passcheck1').addEventListener('change', () => {
+        let userPass = document.getElementById('userPass');
+        if (userPass.getAttribute('type') == 'password') {
+            userPass.setAttribute('type', 'text');
+        } else {
+            userPass.setAttribute('type', 'password');
+        }
+    })
+</script>

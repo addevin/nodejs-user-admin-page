@@ -1,0 +1,51 @@
+<div class=" bg-white">
+    <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom p-1 ad-topHeader">
+      <a href="/" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none logoHeader">
+        <img src="./images/logo.png" alt="" class="logoHeaderimg">
+        <span>Tech Store</span>
+      </a>
+
+      <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+        <li><a href="#" class="nav-link px-2 link-secondary">Home</a></li>
+        <li><a href="#" class="nav-link px-2 link-dark">Features</a></li>
+        <li><a href="#" class="nav-link px-2 link-dark">Pricing</a></li>
+        <li><a href="#" class="nav-link px-2 link-dark">FAQs</a></li>
+        <li><a href="#" class="nav-link px-2 link-dark">About</a></li>
+      </ul>
+
+      <div class="col-md-3 text-end">
+        {{#if userData.admin}}
+        <a class="btn btn-outline-primary" href="/admin">Admin panel</a>
+
+        {{/if}}
+        <a class="btn btn-outline-danger" href="/logout">Sign-out</a>
+      </div>
+    </header>
+  </div>
+<div class="container p-3 bg-white rounded-pill text-center ad-box-shadow ">
+    <h1 class="text-success text-capitalize">
+        Hello {{userData.name }}
+    </h1>
+    <p class="text-muted">Welcome to <b>AdDev tech store</b></p>
+</div>
+
+  <div class="container my-5">
+    <h1 class="text-muted border-bottom">
+        Store
+    </h1>
+
+    <div class="row wrap justify-content-center">
+        {{#each products}}
+        <div class="card col-lg-2 m-2" >
+            <div class="card-img-top text-center py-2 " >
+                <img src="{{this.image}}" class=" ad-productImage" alt="...">
+            </div>
+            <div class="card-body">
+                <h5 class="card-title text-success"> <small>&#8377;</small> {{this.price}}</h5>
+                <p class="card-text small text-muted"><b>{{this.title}} {{this.model}}</b> - {{this.spec}}</p>
+                <button class="btn btn-primary">Add to cart</button>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+  </div>

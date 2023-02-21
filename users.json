@@ -1,0 +1,85 @@
+[{
+  "_id": "wG7UuNiR1tkZD84",
+  "name": "vaishak",
+  "email": "vaihak@gmail.com",
+  "password": "$2b$10$Bq9wEGK66IRQoP3zSXNJveAZGeTMv1cEQdISmnxYGB.ih2hIyA0B.",
+  "loggedin": false,
+  "sess_id": "NoSess",
+  "time": {
+    "$numberLong": "1671011579725"
+  },
+  "admin": false
+},{
+  "_id": "6L8bVDjmj2MhHt3",
+  "name": "shibil das",
+  "email": "shibil.das@gmail.com",
+  "password": "$2b$10$2C.AmKOFdL9Yd6fXEyu60efFFxE5WPOGrWxDZmyXBM4PSySVrh29q",
+  "loggedin": true,
+  "sess_id": "uLOGcco1AjCJh48l4E7",
+  "time": {
+    "$numberLong": "1670838701528"
+  },
+  "admin": true
+},{
+  "_id": "VnYDoV13M2eG9Ve",
+  "name": "user1",
+  "email": "user1@mail.com",
+  "password": "$2b$10$gXow82E/qp0rzgF3NXNf3OM1SMIxGjAx72KOvYr0D8ic/y3x30IAS",
+  "loggedin": true,
+  "sess_id": "uLOG2Ye2C61dpcxHeD4",
+  "time": {
+    "$numberLong": "1671011584134"
+  },
+  "admin": true
+},{
+  "_id": "W0jwD3R0Z8xxEd1",
+  "name": "user2",
+  "email": "user2@mail.com",
+  "password": "$2b$10$WEQUrs/n/bCV7ixrxEyfFur.2A6ASL4o7EIPVnuSLQ.AGLKrtHUqm",
+  "loggedin": false,
+  "sess_id": "NoSess",
+  "time": {
+    "$numberLong": "1670602903786"
+  }
+},{
+  "_id": "YxzfxWE17F7FJTC",
+  "name": "user3",
+  "email": "user3@mail.com",
+  "password": "$2b$10$cyvMvklFIq32w3M/41UDFewLehV5mHR94haxtQqraAaDWYOV0M3/.",
+  "loggedin": false,
+  "sess_id": "NoSess",
+  "time": {
+    "$numberLong": "1670602984622"
+  }
+},{
+  "_id": "K49Km939Q52liwr",
+  "name": "newtestuser",
+  "email": "newtestuser@mail.com",
+  "password": "$2b$10$VothVbqbwHuErgatlTJyGu3a0Tmhzjxwp70W9.BsCihSfPseZD/zC",
+  "loggedin": true,
+  "sess_id": "uLOGAX1bhCCaJoy0fJr",
+  "time": {
+    "$numberLong": "1670997775769"
+  }
+},{
+  "_id": "KBTd4EA4laxhXCC",
+  "name": "adil",
+  "email": "adil.akp1@gmail.com",
+  "password": "$2b$10$3yBSZjksYzyGPWaMEtx3qOmjx.hFbY4TLR.LOe9Krak5IkpFuzwcK",
+  "loggedin": false,
+  "sess_id": "NoSess",
+  "time": {
+    "$numberLong": "1671342757758"
+  },
+  "admin": true
+},{
+  "_id": "ve9UVmEM02SehGd",
+  "name": "reshna",
+  "email": "reshna@gmail.com",
+  "password": "$2b$10$sh6h.4hCNMaWaakA5cUFzez1CQ3TyeFJgwn3clhjBArryYW8WG.IK",
+  "loggedin": false,
+  "sess_id": "NoSess",
+  "time": {
+    "$numberLong": "1671015003989"
+  }
+}]
